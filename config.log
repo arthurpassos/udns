@@ -1,0 +1,45 @@
+This file contains any messages produced by compilers etc while
+running configure, to aid debugging if configure script makes a mistake.
+
+>>> configure
+=== udns package
+>>> checking for C compiler
+=== gcc
+>>> checking whenever C compiler (gcc) is GNU CC
+=== yes
+>>> checking whenever the C compiler (gcc -Wall -W -O2 -pipe)
+           can produce executables
+=== yes
+>>> checking for ranlib
+=== ranlib
+>>> checking for getopt()
+=== yes
+>>> checking for libraries needed for socket and connect
+==== Command invocation failed. Command line was:
+gcc -Wall -W -O2 -pipe conftest.c -o conftest
+==== compiler input was:
+int main() { socket(); connect(); return 0; }
+==== output was:
+conftest.c:1:14: error: implicit declaration of function 'socket' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+int main() { socket(); connect(); return 0; }
+             ^
+conftest.c:1:24: error: implicit declaration of function 'connect' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+int main() { socket(); connect(); return 0; }
+                       ^
+2 errors generated.
+====
+==== Command invocation failed. Command line was:
+gcc -Wall -W -O2 -pipe conftest.c -o conftest -lsocket -lnsl
+==== compiler input was:
+int main() { socket(); connect(); return 0; }
+==== output was:
+conftest.c:1:14: error: implicit declaration of function 'socket' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+int main() { socket(); connect(); return 0; }
+             ^
+conftest.c:1:24: error: implicit declaration of function 'connect' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+int main() { socket(); connect(); return 0; }
+                       ^
+2 errors generated.
+====
+=== not found
+=== FATAL: cannot find libraries needed for sockets
